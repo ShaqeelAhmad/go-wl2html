@@ -1,0 +1,70 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #fff;
+  }
+  a {
+    color: #1bf;
+  }
+  a:visited {
+    color: #08b;
+  }
+  a:hover {
+    color: #2ef;
+    text-decoration: none;
+  }
+}
+body {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.index {
+  text-indent: 1em;
+}
+
+summary[role="button"] {
+  cursor: pointer;
+}
+
+a.interface, a.request, a.event, a.enum {
+  text-decoration: none;
+}
+
+a.interface {
+  color: #ad448e;
+}
+a.request {
+  color: #9a6e31;
+}
+a.event {
+  color: #7c5af3;
+}
+a.enum {
+  color: #508157;
+}
+a.interface:hover {
+  color: #ad44ff;
+}
+a.request:hover {
+  color: #ef7e54;
+}
+a.event:hover {
+  color: #2f5fff;
+}
+a.enum:hover {
+  color: #61f268;
+}
+
+header {
+  padding: 0 10px;
+}
+
+.interfaces {
+  padding: 0 30px;
+}
+
+footer {
+  padding-bottom: 2rem;
+  text-align: center;
+}

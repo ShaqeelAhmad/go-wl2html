@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{.Name}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+
+	<body>
+		<details>
+			<summary role="button">License</summary>
+			<pre>{{ .Copyright }}</pre>
+		</details>
+		<h1>{{.Name}}</h1>
+
+		<h2>Index</h2>
+		{{ range .Interface }}
+		<h4><a href="#{{.Name}}" class="interface" >{{.Name}}</a> - version {{.Version}}</h4>
+		<div class="index">
+		{{ $Iname := .Name }}
+			{{ range .Request }}
+			<h4>Request: <a href="#{{ $Iname }}.{{ .Name }}" class="request" >{{ .Name }}</a></h4>
+			{{ end }}
+			{{ range .Event }}
+			<h4>Event: <a href="#{{ $Iname }}.{{ .Name }}" class="event" >{{ .Name }}</a></h4>
+			{{ end }}
+			{{ range .Enum }}
+			<h4>Enum: <a href="#{{ $Iname }}.{{ .Name }}" class="enum" >{{ .Name }}</a></h4>
+			{{ end }}
+		</div>
+		{{ end }}
+
+		<br>
+
+		{{ range .Interface }}
+		<h2 id="{{.Name}}">Interface <a href="#{{.Name}}" class="interface" >{{.Name}}</a> - version {{.Version}}</h2>
+		<p>
+		{{ if .Description.Summary }}
+		{{ .Description.Summary }}
+		<br>
+		{{ end }}
+		{{ .Description.Content }}
+
+		{{ $Iname := .Name }}
+		</p>
+			{{ range .Request }}
+			<h3 id="{{ $Iname }}.{{ .Name }}" >Request <a href="#{{ $Iname }}.{{ .Name }}" class="request" >{{ .Name }}</a></h3>
+			<p>
+			{{ if .Description.Summary }}
+			{{ .Description.Summary }}
+			<br>
+			{{ end }}
+			{{ .Description.Content }}
+			</p>
+				{{ if .Arg}}
+				<h4> Args </h4>
+					<ul>
+					{{ range .Arg }}
+					<li> {{ .Name }}</li>
+					<p> type: {{ .Type }} </p>
+					<p> interface: {{ .Interface }} </p>
+					<p> summary: {{ .Summary }} </p>
+
+					{{ end }}
+					</ul>
+				{{ end }}
+			{{ end }}
+
+			{{ range .Event }}
+			<h3 id="{{ $Iname }}.{{ .Name }}" >Event <a href="#{{ $Iname }}.{{ .Name }}" class="event" >{{ .Name }}</a></h3>
+			<p>
+			{{ if .Description.Summary }}
+			{{ .Description.Summary }}
+			<br>
+			{{ end }}
+			{{ .Description.Content }}
+			</p>
+				{{ if .Arg }}
+				<h4> Args </h4>
+					<ul>
+					{{ range .Arg }}
+					<li> {{ .Name }}</li>
+					<p> type: {{ .Type }} </p>
+					<p> interface: {{ .Interface }} </p>
+					<p> summary: {{ .Summary }} </p>
+
+					{{ end }}
+					</ul>
+				{{ end }}
+			{{ end }}
+
+			{{ range .Enum }}
+			<h3 id="{{ $Iname }}.{{ .Name }}" >Enum <a href="#{{ $Iname }}.{{ .Name }}" class="enum" >{{ .Name }}</a></h3>
+			<p>
+			{{ if .Description.Summary }}
+			{{ .Description.Summary }}
+			<br>
+			{{ end }}
+			{{ .Description.Content }}
+			</p>
+				{{ if .Entry }}
+				<h4> Entry </h4>
+					<ul>
+					{{ range .Entry }}
+					<li> {{ .Name }}</li>
+					<p> value: {{ .Value }} </p>
+					<p> summary: {{ .Summary }} </p>
+
+					{{ end }}
+					</ul>
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	</body>
+	<footer>
+		<a href="/index.html">Index</a>
+	</footer>
+</html>
