@@ -14,7 +14,7 @@
 		</details>
 		<h1>{{.Name}}</h1>
 
-		<h2>Index</h2>
+		<nav>
 		{{ range .Interface }}
 		<h4><a href="#{{.Name}}" class="interface" >{{.Name}}</a> - version {{.Version}}</h4>
 		<div class="index">
@@ -30,9 +30,9 @@
 			{{ end }}
 		</div>
 		{{ end }}
+		</nav>
 
-		<br>
-
+		<main>
 		{{ range .Interface }}
 		<h2 id="{{.Name}}">Interface <a href="#{{.Name}}" class="interface" >{{.Name}}</a> - version {{.Version}}</h2>
 		<p>
@@ -112,6 +112,7 @@
 				{{ end }}
 			{{ end }}
 		{{ end }}
+		</main>
 	</body>
 	<footer>
 		<a href="/index.html">Index</a>

@@ -14,9 +14,23 @@
     text-decoration: none;
   }
 }
+
 body {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 1em;
+  margin-right: 5em;
+}
+
+nav {
+  float: left;
+  border-right: 1px dotted #fff;
+  width: 300px;
+  margin: 0 1px 0 0;
+  padding: 1em 0;
+}
+
+main {
+  margin: 0 0 0 300px;
+  padding: 1em;
 }
 
 .index {
